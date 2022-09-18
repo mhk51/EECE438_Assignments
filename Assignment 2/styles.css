@@ -1,0 +1,20 @@
+body {
+    background-color:gold;
+    font-size: 300%;
+ }
+ form {
+   width: 65%;
+   align-content: center;
+ }
+ table{
+    background-color: blue;
+    border: 1px;
+    padding: 10px;
+    font-size: 24;
+    align-self: center;
+    margin-left: auto;
+ }
+ h1 {
+    color: blue;
+    align-self: center;
+ }
