@@ -1,0 +1,3 @@
+You cann't run AJAX script on browsers because of security issues.
+You have either to disable browser security (how?) or run the cript on
+a server like WAMP-Server, Live-Server ...
