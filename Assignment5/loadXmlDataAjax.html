@@ -64,9 +64,7 @@ function myFunction(xml) {
     "</td></tr>";
     document.getElementById("demo").innerHTML = table;
   }
-  if(!found){
-    document.getElementById("demo").innerHTML = "Not Found"
-  }
+
 }
 
 
@@ -97,8 +95,10 @@ function searchBy(xml,tel,field) {
   var xmlDoc = xml.responseXML;
   var table="<tr><th>Name</th><th>Tel Number</th><th>Profession</th><td>Email</td></tr>";
   var x = xmlDoc.getElementsByTagName("CONTACT");
+  var found = false
   for (i = 0; i <x.length; i++) {
     if(x[i].getElementsByTagName(field)[0].childNodes[0].nodeValue === tel){ 
+      found = true
     table += "<tr><td>" +
     x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +
     "</td><td>" +
@@ -110,6 +110,9 @@ function searchBy(xml,tel,field) {
     "</td></tr>";
     document.getElementById("demo").innerHTML = table;
     }
+    if(!found){
+    document.getElementById("demo").innerHTML = "Not Found"
+  }
   }
 
 
