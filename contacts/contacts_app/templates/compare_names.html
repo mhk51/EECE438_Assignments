@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 
+  </head>
+  <body>
+    
+      <nav class="navbar navbar-dark bg-dark">
+        <form action="{% url 'contacts_app:homepage'%}">
+        <button class="btn btn-primary" type="submit">Home</button> 
+      </form>
+        <a class="navbar-brand mx-auto" href="">
+          Compare Contacts by Names
+        </a>
+      </nav>
+      
+      <br><br>
+
+      <br><br>
+      <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <label>First Name: </label>
+            <input name="name1">
+            <label>Second Name: </label>
+            <input name="name2">
+            <button class="btn btn-primary" type="submit">Compare</button>
+        </form>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ result }}</h5>         
+            </div>
+          </div>
+      </div>
+
+  </body>
+</html>
