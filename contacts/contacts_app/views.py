@@ -9,9 +9,10 @@ def homepage(request):
     if form.is_valid():
       form.save()
   sortBy = request.GET.get("sort-by")
-  if(sortBy == "none"):
+  if(sortBy == "none" or sortBy == None):
     contacts = Contact.objects.all()
   else:
+    
     contacts = Contact.objects.all().order_by(sortBy)
   form = ContactForm()
   return render(request, "home.html", {"form": form, "contacts":contacts})
@@ -55,7 +56,9 @@ def compareNames(request):
         name1 = request.POST["name1"]
         name2 = request.POST["name2"]
         contact1 = Contact.objects.filter(name = name1).first()
-        contact2 = Contact.objects.filter(name = name2).first()
+        contact2List = Contact.objects.filter(name = name2).exclude(contact1)
+        if(contact2List != []):
+           contact2 = contact2List.first()
         if(contact2 != None and contact1 != None):
             result = (contact1 == contact2)
 
